@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@layer base {
+  body {
+    @apply bg-rack-bg text-rack-text antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-rack-accent hover:bg-rack-accent-hover text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-orange-500/20;
+  }
+  
+  .btn-secondary {
+    @apply border border-rack-border hover:border-rack-accent text-rack-text px-6 py-3 rounded-lg transition-all duration-200;
+  }
+  
+  .card {
+    @apply bg-rack-surface border border-rack-border rounded-xl overflow-hidden transition-all duration-200 hover:border-rack-accent/50 hover:shadow-lg hover:shadow-orange-500/5;
+  }
+  
+  .input-field {
+    @apply w-full bg-rack-bg border border-rack-border rounded-lg px-4 py-3 text-rack-text placeholder-rack-muted focus:outline-none focus:border-rack-accent focus:ring-1 focus:ring-rack-accent transition-colors;
+  }
+  
+  .select-field {
+    @apply w-full bg-rack-bg border border-rack-border rounded-lg px-4 py-3 text-rack-text focus:outline-none focus:border-rack-accent focus:ring-1 focus:ring-rack-accent transition-colors appearance-none;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .badge-active {
+    @apply badge bg-green-500/20 text-green-400;
+  }
+  
+  .badge-sold {
+    @apply badge bg-red-500/20 text-red-400;
+  }
+  
+  .badge-reserved {
+    @apply badge bg-yellow-500/20 text-yellow-400;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-rack-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-rack-border rounded-full hover:bg-rack-muted;
+}
