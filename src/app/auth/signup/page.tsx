@@ -34,13 +34,7 @@ export default function SignupPage() {
       return;
     }
 
-    // Create profile
-    if (data.user) {
-      await supabase.from('profiles').upsert({
-        id: data.user.id,
-        username,
-      });
-    }
+    // Profile is auto-created by database trigger on auth.users insert
 
     setSuccess(true);
     setLoading(false);
