@@ -7,6 +7,23 @@
 @layer base {
   body {
     @apply bg-rack-bg text-rack-text antialiased;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Ensure minimum touch target size on mobile */
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+    @apply inline-flex items-center justify-center;
+  }
+
+  input,
+  select,
+  textarea {
+    @apply touch-manipulation;
   }
 }
 
