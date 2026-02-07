@@ -5,6 +5,11 @@ import { Navbar } from "@/components/Navbar";
 export const metadata: Metadata = {
   title: "RackMarket — Buy & Sell Eurorack Modules",
   description: "The marketplace for modular synth enthusiasts. Buy, sell, and trade Eurorack modules.",
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
 };
 
 export default function RootLayout({

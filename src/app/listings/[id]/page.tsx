@@ -38,11 +38,11 @@ export default async function ListingPage({ params }: { params: { id: string } }
 
   return (
     <div className="max-w-4xl mx-auto">
-      <Link href="/" className="text-rack-muted hover:text-rack-accent transition-colors text-sm mb-6 inline-block">
+      <Link href="/" className="text-rack-muted hover:text-rack-accent transition-colors text-sm mb-6 inline-block py-2 px-1">
         ← Back to listings
       </Link>
 
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-6 md:gap-8">
         {/* Image */}
         <div className="card overflow-hidden">
           <div className="aspect-square bg-rack-bg flex items-center justify-center">
@@ -65,8 +65,8 @@ export default async function ListingPage({ params }: { params: { id: string } }
         <div className="space-y-6">
           <div>
             <p className="text-sm text-rack-muted uppercase tracking-wider">{listing.manufacturer}</p>
-            <h1 className="text-3xl font-bold mt-1">{listing.module_name}</h1>
-            <div className="flex items-center gap-3 mt-3">
+            <h1 className="text-2xl md:text-3xl font-bold mt-1">{listing.module_name}</h1>
+            <div className="flex items-center gap-3 mt-3 flex-wrap">
               <span className={`badge ${
                 listing.status === 'active' ? 'badge-active' :
                 listing.status === 'sold' ? 'badge-sold' : 'badge-reserved'
@@ -77,7 +77,7 @@ export default async function ListingPage({ params }: { params: { id: string } }
             </div>
           </div>
 
-          <div className="text-4xl font-bold text-rack-accent">
+          <div className="text-3xl md:text-4xl font-bold text-rack-accent">
             €{listing.price.toLocaleString()}
           </div>
 
@@ -85,40 +85,40 @@ export default async function ListingPage({ params }: { params: { id: string } }
           <div className="grid grid-cols-2 gap-3">
             <div className="card p-3">
               <p className="text-xs text-rack-muted">Type</p>
-              <p className="font-semibold capitalize">{listing.module_type}</p>
+              <p className="font-semibold text-sm capitalize">{listing.module_type}</p>
             </div>
             <div className="card p-3">
               <p className="text-xs text-rack-muted">Width</p>
-              <p className="font-semibold">{listing.hp} HP</p>
+              <p className="font-semibold text-sm">{listing.hp} HP</p>
             </div>
             <div className="card p-3">
               <p className="text-xs text-rack-muted">Condition</p>
-              <p className="font-semibold capitalize">{listing.condition}</p>
-              <p className="text-xs text-rack-muted">{conditionDescriptions[listing.condition]}</p>
+              <p className="font-semibold text-sm capitalize">{listing.condition}</p>
+              <p className="text-xs text-rack-muted hidden sm:block">{conditionDescriptions[listing.condition]}</p>
             </div>
             {listing.location && (
               <div className="card p-3">
                 <p className="text-xs text-rack-muted">Location</p>
-                <p className="font-semibold">📍 {listing.location}</p>
+                <p className="font-semibold text-sm">📍 {listing.location}</p>
               </div>
             )}
           </div>
 
           {/* Description */}
           <div>
-            <h2 className="font-semibold mb-2">Description</h2>
+            <h2 className="font-semibold mb-2 text-sm md:text-base">Description</h2>
             <p className="text-rack-muted text-sm whitespace-pre-wrap leading-relaxed">
               {listing.description}
             </p>
           </div>
 
           {/* Seller */}
-          <div className="card p-4 flex items-center justify-between">
+          <div className="card p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div>
               <p className="text-xs text-rack-muted">Seller</p>
               <p className="font-semibold">{profile?.username || 'Unknown'}</p>
             </div>
-            <button className="btn-primary text-sm">
+            <button className="btn-primary text-sm w-full sm:w-auto">
               Contact Seller
             </button>
           </div>

@@ -53,40 +53,40 @@ export default async function Home({
   return (
     <div className="space-y-8">
       {/* Hero */}
-      <section className="text-center py-12 space-y-4">
-        <h1 className="text-4xl sm:text-5xl font-bold">
+      <section className="text-center py-8 sm:py-12 space-y-4">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold px-2">
           Buy & Sell <span className="text-rack-accent">Eurorack</span> Modules
         </h1>
-        <p className="text-rack-muted text-lg max-w-2xl mx-auto">
+        <p className="text-rack-muted text-base sm:text-lg max-w-2xl mx-auto px-4">
           The marketplace built for modular synth heads. Find your next module or pass one along.
         </p>
-        <div className="flex justify-center gap-3 pt-4">
-          <Link href="/auth/signup" className="btn-primary">
+        <div className="flex flex-col sm:flex-row justify-center gap-3 pt-4 px-4">
+          <Link href="/auth/signup" className="btn-primary w-full sm:w-auto">
             Start Selling
           </Link>
-          <a href="#listings" className="btn-secondary">
+          <a href="#listings" className="btn-secondary w-full sm:w-auto">
             Browse Modules
           </a>
         </div>
       </section>
 
       {/* Stats */}
-      <section className="grid grid-cols-3 gap-4 max-w-lg mx-auto">
-        <div className="text-center p-4 card">
-          <p className="text-2xl font-bold text-rack-accent">{listings?.length || 0}</p>
-          <p className="text-xs text-rack-muted">Active Listings</p>
+      <section className="grid grid-cols-3 gap-2 sm:gap-4 max-w-lg mx-auto">
+        <div className="text-center p-3 sm:p-4 card">
+          <p className="text-xl sm:text-2xl font-bold text-rack-accent">{listings?.length || 0}</p>
+          <p className="text-[10px] sm:text-xs text-rack-muted">Active Listings</p>
         </div>
-        <div className="text-center p-4 card">
-          <p className="text-2xl font-bold text-rack-accent">€{
+        <div className="text-center p-3 sm:p-4 card">
+          <p className="text-xl sm:text-2xl font-bold text-rack-accent">€{
             listings?.reduce((sum, l) => sum + l.price, 0)?.toLocaleString() || 0
           }</p>
-          <p className="text-xs text-rack-muted">Total Value</p>
+          <p className="text-[10px] sm:text-xs text-rack-muted">Total Value</p>
         </div>
-        <div className="text-center p-4 card">
-          <p className="text-2xl font-bold text-rack-accent">
+        <div className="text-center p-3 sm:p-4 card">
+          <p className="text-xl sm:text-2xl font-bold text-rack-accent">
             {new Set(listings?.map(l => l.manufacturer)).size || 0}
           </p>
-          <p className="text-xs text-rack-muted">Manufacturers</p>
+          <p className="text-[10px] sm:text-xs text-rack-muted">Manufacturers</p>
         </div>
       </section>
 
